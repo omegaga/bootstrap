@@ -2,7 +2,7 @@
 
 PWD=$(pwd)
 echo "Installing dependencies..."
-sudo yum -y install zsh vim byobu clang-3.4.2 clang-devel-3.4.2 cmake valgrind
+sudo yum -y install zsh vim byobu clang-3.4.2 clang-devel-3.4.2 cmake valgrind parallel
 
 echo "Creating build directory..."
 rm -rf build
