@@ -2,7 +2,7 @@
 
 PWD=$(pwd)
 echo "Installing dependencies..."
-sudo yum -y install zsh vim byobu clang-3.4.2 cmake valgrind fb-ycm-1.1
+sudo yum -y install zsh vim byobu clang-3.4.2 clang-devel-3.4.2 cmake valgrind
 
 echo "Creating build directory..."
 rm -rf build
@@ -32,8 +32,9 @@ cp "${PWD}"/vimrc.before.local ~/.vimrc.before.local
 rm ~/.vimviews
 
 # YCM
-cd ~/.vim/bundle && rm -rf YouCompleteMe
-ln -s /usr/share/vim/vim74/bundle/YouCompleteMe .
+cd ~/.vim/bundle/YouCompleteMe
+wget http://llvm.org/releases/3.8.0/clang+llvm-3.8.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz -O third_party/ycmd/clang_archives/
+./install.py --clang-completer
 
 cd "${PWD}"
 
